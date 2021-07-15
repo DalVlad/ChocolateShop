@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+    </head>
+    <body>
+        <div th:each=" q : ${chocolates}">
+            <p  th:text="${q.toString()}"></p>
+            <a th:href="@{/product/{index}(index=${q.getIndex})}" th:text="${q.getIndex}"></a>
+        </div>
+    </body>
+</html>
