@@ -19,7 +19,7 @@ public class ChocolateDAO {
         chocolate.add(new Chocolate(++INDEX, ChocolateColor.BLACK, 50));
         chocolate.add(new Chocolate(++INDEX, ChocolateColor.BLACK, 90));
         chocolate.add(new Chocolate(++INDEX, ChocolateColor.WHITE, 20));
-        chocolate.add(new Chocolate(++INDEX, ChocolateColor.WHITE, 30));
+//        chocolate.add(new Chocolate(++INDEX, ChocolateColor.WHITE, 30));
     }
 
     public List<Chocolate> allChocolate(){
