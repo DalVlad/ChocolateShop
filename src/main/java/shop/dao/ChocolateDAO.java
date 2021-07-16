@@ -11,23 +11,28 @@ import java.util.List;
 public class ChocolateDAO {
 
     private static int INDEX;
-    private List<Chocolate> chocolate;
+    private List<Chocolate> chocolates;
 
     {
-        chocolate = new ArrayList<>();
+        chocolates = new ArrayList<>();
 
-        chocolate.add(new Chocolate(++INDEX, ChocolateColor.BLACK, 50));
-        chocolate.add(new Chocolate(++INDEX, ChocolateColor.BLACK, 90));
-        chocolate.add(new Chocolate(++INDEX, ChocolateColor.WHITE, 20));
-        chocolate.add(new Chocolate(++INDEX, ChocolateColor.WHITE, 30));
+        chocolates.add(new Chocolate(++INDEX, ChocolateColor.BLACK, 50, "Marks"));
+        chocolates.add(new Chocolate(++INDEX, ChocolateColor.BLACK, 90, "Alpen Red"));
+        chocolates.add(new Chocolate(++INDEX, ChocolateColor.WHITE, 20, "Milca"));
+        chocolates.add(new Chocolate(++INDEX, ChocolateColor.WHITE, 30, "Mequik"));
     }
 
     public List<Chocolate> allChocolate(){
-        return chocolate;
+        return chocolates;
     }
 
     public Chocolate getChocolate(final int index){
-        return chocolate.stream().filter(chocolate -> chocolate.getIndex() == index).findAny().orElse(null);
+        return chocolates.stream().filter(chocolate -> chocolate.getIndex() == index).findAny().orElse(null);
+    }
+
+    public void save(Chocolate chocolate){
+        chocolate.setIndex(++INDEX);
+        chocolates.add(chocolate);
     }
 
 }
