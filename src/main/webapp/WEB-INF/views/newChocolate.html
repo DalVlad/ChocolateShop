@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+        <form th:method="POST" th:action="@{/createChocolate}" th:object="${newChocolate}">
+            <label for="name">Название</label>
+            <input type="text" th:field="*{name}" id="name"/>
+            <br/>
+            <label for="percentage">Процент кокао</label>
+            <input type="text" th:field="*{cocoaPercentage}" id="percentage"/>
+            <br/>
+            Цвет
+            <br/>
+            <div th:each="color: ${T(shop.model.ChocolateColor).values()}">
+                <label th:for="col" th:text="${color.getTranslation()}"></label>
+                <input type="radio" th:field="*{chocolateColor}" th:value="${color}" th:id="col" name="color"/>
+            </div>
+
+            <br/>
+            <input type="submit" value="Add"/>
+        </form>
+    </body>
+</html>
