@@ -6,11 +6,15 @@ public class Chocolate {
     private int index;
     private ChocolateColor chocolateColor;
     private int cocoaPercentage;
+    private String name;
 
-    public Chocolate(int index, ChocolateColor chocolateColor, int cocoaPercentage) {
+    public Chocolate(){}
+
+    public Chocolate(int index, ChocolateColor chocolateColor, int cocoaPercentage, String name) {
         this.index = index;
         this.chocolateColor = chocolateColor;
         this.cocoaPercentage = cocoaPercentage;
+        this.name = name;
     }
 
     public ChocolateColor getChocolateColor() {
@@ -37,10 +41,18 @@ public class Chocolate {
         this.index = index;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
-        return "Шоколад:" +
-                " цвет: " + chocolateColor.getTranslation() +
+        return "Шоколад: " + getName() +
+                "тип: " + chocolateColor.getTranslation() +
                 ", процент: " + cocoaPercentage;
     }
 }
