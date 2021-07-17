@@ -1,4 +1,4 @@
-package shop.model;
+package shop.model.chocolate;
 
 public enum ChocolateColor {
     WHITE("Белый"), BLACK("Черный");

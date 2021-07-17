@@ -1,4 +1,4 @@
-package shop.model;
+package shop.model.chocolate;
 
 public class Chocolate {
 
@@ -52,7 +52,7 @@ public class Chocolate {
     @Override
     public String toString() {
         return "Шоколад: " + getName() +
-                "тип: " + chocolateColor.getTranslation() +
+                ", тип: " + chocolateColor.getTranslation() +
                 ", процент: " + cocoaPercentage;
     }
 }
