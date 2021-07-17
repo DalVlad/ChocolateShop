@@ -14,7 +14,7 @@
             <br/>
             Цвет
             <br/>
-            <div th:each="color: ${T(shop.model.ChocolateColor).values()}">
+            <div th:each="color: ${T(shop.model.chocolate.ChocolateColor).values()}">
                 <label th:for="col" th:text="${color.getTranslation()}"></label>
                 <input type="radio" th:field="*{chocolateColor}" th:value="${color}" th:id="col" name="color"/>
             </div>
