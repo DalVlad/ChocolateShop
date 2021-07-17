@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+    <div>
+        <form th:method="POST" th:action="@{/orderAccepted}" th:object="${list}">
+            <div th:each=" q: ${chocolates}">
+            <label th:for="chocolate" th:text="${q.toString()}"></label>
+            <input th:type="checkbox" th:value="${q.getIndex()}" th:id="chocolate" th:name="list">
+            </div>
+            <input type="submit" value="Заказать"/>
+        </form>
+    </div>
+    </body>
+</html>
