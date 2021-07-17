@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
     <head>
         <meta charset="UTF-8">
         <title>Home</title>
     </head>
     <body>
-        <div th:each=" q : ${chocolates}">
-            <p  th:text="${q.toString()}"></p>
-            <a th:href="@{/product/{index}(index=${q.getIndex})}" th:text="${q.getIndex}"></a>
+        <div th:each=" q: ${chocolates}">
+            <a th:utext="${q.toString()}"> </a> -> <a th:href="@{/product/{index}(index=${q.getIndex})}" th:text="Подробнее"></a>
         </div>
+        <a th:href="@{/order}">Заказ</a>
     </body>
 </html>
