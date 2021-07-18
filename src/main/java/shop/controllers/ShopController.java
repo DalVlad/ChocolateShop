@@ -3,16 +3,12 @@ package shop.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import shop.dao.ChocolateDAO;
 import shop.dao.OrderDAO;
 import shop.dao.PeopleDAO;
-import shop.model.basket.Basket;
 import shop.model.chocolate.Chocolate;
-import shop.model.people.Client;
-
-import java.util.ArrayList;
-
 
 @Controller
 public class ShopController {
@@ -55,16 +51,21 @@ public class ShopController {
     @GetMapping("/order")
     public String order(Model model){
         model.addAttribute("chocolates", chocolateDAO.allChocolate());
-        model.addAttribute("list", new ArrayList<Integer>());
-//        model.addAttribute("client", new Client());
         return "order";
     }
 
     @PostMapping("/orderAccepted")
-    public String orderAccepted(@RequestParam("list") int[] chocolate){
+    public String orderAccepted(@RequestParam("list") int[] chocolate,
+                                @ModelAttribute("phoneNumber") String phoneNumber,
+                                @RequestParam("name") String name){
+        if(!peopleDAO.save(name, phoneNumber)){return "/error";}
         orderDAO.save(chocolate);
         return "redirect:/home";
     }
 
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    public String handleMyException(Exception  exception) {
+        return "error";
+    }
 
 }
