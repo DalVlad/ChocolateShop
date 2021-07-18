@@ -17,16 +17,15 @@ public class Basket {
         this.chocolates = new ArrayList<>(quantity);
     }
 
-
-    public List<Chocolate> getObjectChocolates() {
+    public List<Chocolate> getChocolates() {
         return chocolates;
     }
 
-    public void setObjectChocolates(List<Chocolate> objectChocolates) {
+    public void setChocolates(List<Chocolate> objectChocolates) {
         this.chocolates = objectChocolates;
     }
 
-    public void addObjectChocolates(Chocolate chocolate) {
+    public void addChocolates(Chocolate chocolate) {
         this.chocolates.add(chocolate);
     }
 
