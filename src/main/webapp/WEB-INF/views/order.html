@@ -6,11 +6,16 @@
 </head>
     <body>
     <div>
-        <form th:method="POST" th:action="@{/orderAccepted}" th:object="${list}">
+        <form th:method="POST" th:action="@{/orderAccepted}">
             <div th:each=" q: ${chocolates}">
             <label th:for="chocolate" th:text="${q.toString()}"></label>
             <input th:type="checkbox" th:value="${q.getIndex()}" th:id="chocolate" th:name="list">
             </div>
+            <label th:for="phoneNumber">Телефон</label>
+            <input th:type="tel" th:id="phoneNumber" th:name="phoneNumber"/>
+            </br>
+            <label th:for="name">Введите имя</label>
+            <input th:type="text" th:id="name" th:name="name"/>
             <input type="submit" value="Заказать"/>
         </form>
     </div>
