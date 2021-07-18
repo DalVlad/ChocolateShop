@@ -3,20 +3,20 @@ package shop.model.people;
 public class Client {
 
     private String name;
-    private int phoneNumber;
+    private long phoneNumber;
 
     public Client(){}
 
-    public Client(String name, int phoneNumber) {
+    public Client(String name, long phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
