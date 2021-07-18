@@ -3,7 +3,6 @@ package shop.dao;
 import org.springframework.stereotype.Component;
 import shop.model.chocolate.Chocolate;
 import shop.model.chocolate.ChocolateColor;
-import shop.model.people.Client;
 
 import java.util.ArrayList;
 import java.util.List;
