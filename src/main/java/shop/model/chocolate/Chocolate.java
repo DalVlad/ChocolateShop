@@ -4,24 +4,24 @@ public class Chocolate {
 
 
     private int index;
-    private ChocolateColor chocolateColor;
+    private String chocolateColor;
     private int cocoaPercentage;
     private String name;
 
     public Chocolate(){}
 
-    public Chocolate(int index, ChocolateColor chocolateColor, int cocoaPercentage, String name) {
+    public Chocolate(int index, String chocolateColor, int cocoaPercentage, String name) {
         this.index = index;
         this.chocolateColor = chocolateColor;
         this.cocoaPercentage = cocoaPercentage;
         this.name = name;
     }
 
-    public ChocolateColor getChocolateColor() {
+    public String getChocolateColor() {
         return chocolateColor;
     }
 
-    public void setChocolateColor(ChocolateColor chocolateColor) {
+    public void setChocolateColor(String chocolateColor) {
         this.chocolateColor = chocolateColor;
     }
 
@@ -52,7 +52,7 @@ public class Chocolate {
     @Override
     public String toString() {
         return "Шоколад: " + getName() +
-                ", тип: " + chocolateColor.getTranslation() +
+                ", тип: " + chocolateColor +
                 ", процент: " + cocoaPercentage;
     }
 }

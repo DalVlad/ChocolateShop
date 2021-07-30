@@ -11,15 +11,16 @@ import java.util.List;
 public class ChocolateDAO {
 
     private static int INDEX_CHOCOLATE;
+    //        jdbc:postgresql://localhost:5432/testDB
     private List<Chocolate> chocolates;
 
     {
         chocolates = new ArrayList<>();
 
-        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, ChocolateColor.BLACK, 50, "Marks"));
-        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, ChocolateColor.BLACK, 90, "Alpen Red"));
-        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, ChocolateColor.WHITE, 20, "Milca"));
-        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, ChocolateColor.WHITE, 30, "Mequik"));
+        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, "Черный", 50, "Marks"));
+        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, "Черный", 90, "Alpen Red"));
+        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, "Белый", 20, "Milca"));
+        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, "Белый", 30, "Mequik"));
     }
 
 
