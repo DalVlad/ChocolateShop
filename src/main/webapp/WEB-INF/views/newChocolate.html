@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
     <body>
-        <form th:method="POST" th:action="@{/createChocolate}" th:object="${newChocolate}">
+        <form th:method="POST" th:action="@{/createChocolate}" accept-charset="ISO-8859-1" th:object="${newChocolate}">
             <label for="name">Название</label>
             <input type="text" th:field="*{name}" id="name"/>
             <br/>
@@ -16,7 +16,7 @@
             <br/>
             <div th:each="color: ${T(shop.model.chocolate.ChocolateColor).values()}">
                 <label th:for="col" th:text="${color.getTranslation()}"></label>
-                <input type="radio" th:field="*{chocolateColor}" th:value="${color}" th:id="col" name="color"/>
+                <input type="radio" th:field="*{chocolateColor}" th:value="${color.getTranslation()}" th:id="col" name="color"/>
             </div>
 
             <br/>
