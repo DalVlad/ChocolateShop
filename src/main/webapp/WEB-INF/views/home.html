@@ -6,7 +6,7 @@
     </head>
     <body>
         <div th:each=" q: ${chocolates}">
-            <a th:utext="${q.toString()}"> </a> -> <a th:href="@{/product/{index}(index=${q.getIndex})}" th:text="Подробнее"></a>
+            <a th:utext="${q.toString()}"> </a> -> <a th:href="@{/product/{index}(index=${q.id})}" th:text="Подробнее"></a>
         </div>
         <a th:href="@{/order}">Заказ</a>
     </body>

@@ -3,15 +3,15 @@ package shop.model.chocolate;
 public class Chocolate {
 
 
-    private int index;
+    private int id;
     private String chocolateColor;
     private int cocoaPercentage;
     private String name;
 
     public Chocolate(){}
 
-    public Chocolate(int index, String chocolateColor, int cocoaPercentage, String name) {
-        this.index = index;
+    public Chocolate(int id, String chocolateColor, int cocoaPercentage, String name) {
+        this.id = id;
         this.chocolateColor = chocolateColor;
         this.cocoaPercentage = cocoaPercentage;
         this.name = name;
@@ -33,12 +33,12 @@ public class Chocolate {
         this.cocoaPercentage = cocoaPercentage;
     }
 
-    public int getIndex() {
-        return index;
+    public int getId() {
+        return id;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
