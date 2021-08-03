@@ -9,7 +9,7 @@
         <form th:method="POST" th:action="@{/orderAccepted}">
             <div th:each=" q: ${chocolates}">
             <label th:for="chocolate" th:text="${q.toString()}"></label>
-            <input th:type="checkbox" th:value="${q.getIndex()}" th:id="chocolate" th:name="list">
+            <input th:type="checkbox" th:value="${q.getId()}" th:id="chocolate" th:name="list">
             </div>
             <label th:for="phoneNumber">Телефон</label>
             <input th:type="tel" th:id="phoneNumber" th:name="phoneNumber"/>
