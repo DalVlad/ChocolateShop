@@ -1,6 +1,9 @@
 package shop.config;
 
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 public class SpringMvcDispatcherSerlvetIntializer extends AbstractAnnotationConfigDispatcherServletInitializer
 {
@@ -18,5 +21,13 @@ public class SpringMvcDispatcherSerlvetIntializer extends AbstractAnnotationConf
     @Override
     protected String[] getServletMappings() {
         return new String[] {"/"};
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
+        filter.setEncoding("UTF-8");
+        filter.setForceEncoding(true);
+        return new Filter[] { filter };
     }
 }

@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
     <body>
-        <form th:method="POST" th:action="@{/createChocolate}" accept-charset="ISO-8859-1" th:object="${newChocolate}">
+        <form th:method="POST" th:action="@{/createChocolate}" accept-charset="UTF-8" th:object="${newChocolate}">
             <label for="name">Название</label>
             <input type="text" th:field="*{name}" id="name"/>
             <br/>
