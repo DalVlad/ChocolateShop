@@ -30,9 +30,9 @@ public class ShopController {
         return "home";
     }
 
-    @GetMapping("/product/{index}")
-    public String products(@PathVariable("index") int index, Model model){
-        model.addAttribute("chocolate", chocolateDAO.getChocolate(index));
+    @GetMapping("/product/{id}")
+    public String products(@PathVariable("id") int id, Model model){
+        model.addAttribute("chocolate", chocolateDAO.getChocolate(id));
         return "product";
     }
 
