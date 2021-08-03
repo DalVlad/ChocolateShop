@@ -1,40 +1,36 @@
 package shop.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import shop.model.chocolate.Chocolate;
-import shop.model.chocolate.ChocolateColor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class ChocolateDAO {
 
-    private static int INDEX_CHOCOLATE;
-    //        jdbc:postgresql://localhost:5432/testDB
-    private List<Chocolate> chocolates;
+    private final JdbcTemplate jdbcTemplate;
 
-    {
-        chocolates = new ArrayList<>();
-
-        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, "Черный", 50, "Marks"));
-        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, "Черный", 90, "Alpen Red"));
-        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, "Белый", 20, "Milca"));
-        chocolates.add(new Chocolate(++INDEX_CHOCOLATE, "Белый", 30, "Mequik"));
+    @Autowired
+    public ChocolateDAO(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
 
     public List<Chocolate> allChocolate(){
-        return chocolates;
+        return jdbcTemplate.query("SELECT * FROM Chocolate", new BeanPropertyRowMapper<>(Chocolate.class));
     }
 
-    public Chocolate getChocolate(int index){
-        return chocolates.stream().filter(chocolate -> chocolate.getIndex() == index).findAny().orElse(null);
+    public Chocolate getChocolate(int id){
+        return jdbcTemplate.query("SELECT * FROM Chocolate WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Chocolate.class))
+                .stream().findAny().orElse(null);
     }
 
     public void save(Chocolate chocolate){
-        chocolate.setIndex(++INDEX_CHOCOLATE);
-        chocolates.add(chocolate);
+        jdbcTemplate.update("INSERT INTO Chocolate VALUES (DEFAULT , ?, ?, ?)", chocolate.getChocolateColor(),
+                chocolate.getCocoaPercentage(), chocolate.getName());
     }
 
 }
