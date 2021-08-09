@@ -28,9 +28,16 @@ public class ChocolateDAO {
                 .stream().findAny().orElse(null);
     }
 
-    public void save(Chocolate chocolate){
+    public boolean save(Chocolate chocolate){
+        List<Chocolate> chocolates = allChocolate();
+        for(Chocolate chocolate1: chocolates){
+            if(chocolate1.getName().equals(chocolate.getName())){
+                return false;
+            }
+        }
         jdbcTemplate.update("INSERT INTO Chocolate VALUES (DEFAULT , ?, ?, ?)", chocolate.getChocolateColor(),
                 chocolate.getCocoaPercentage(), chocolate.getName());
+        return true;
     }
 
     public void delete(int id){

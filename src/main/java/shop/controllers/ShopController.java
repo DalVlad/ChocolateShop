@@ -44,7 +44,7 @@ public class ShopController {
 
     @PostMapping("/createChocolate")
     public String create(@ModelAttribute("newChocolate") Chocolate chocolate){
-        chocolateDAO.save(chocolate);
+        if(!chocolateDAO.save(chocolate)){return "error";}
         return "redirect:/home";
     }
 
