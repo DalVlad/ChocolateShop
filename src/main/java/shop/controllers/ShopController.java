@@ -63,6 +63,12 @@ public class ShopController {
         return "redirect:/home";
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteChocolate(@PathVariable("id") int id){
+        chocolateDAO.delete(id);
+        return "redirect:/home";
+    }
+
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public String handleMyException(Exception  exception) {
         return "error";
