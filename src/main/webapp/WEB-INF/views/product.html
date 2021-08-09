@@ -6,5 +6,6 @@
     </head>
     <body>
         <p th:text="${chocolate.toString()}"></p>
+        <a th:href="@{/delete/{id}(id=${chocolate.getId()})}">Удалить</a>
     </body>
 </html>
