@@ -33,4 +33,8 @@ public class ChocolateDAO {
                 chocolate.getCocoaPercentage(), chocolate.getName());
     }
 
+    public void delete(int id){
+        jdbcTemplate.update("DELETE FROM Chocolate WHERE id=?", id);
+    }
+
 }
